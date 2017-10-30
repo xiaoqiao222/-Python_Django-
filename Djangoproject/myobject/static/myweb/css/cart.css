@@ -1,0 +1,89 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+    /*导航*/
+body { padding-top: 3.5rem; background: #D9D8D7 }
+ 
+
+/*end 购物车显示框 */
+ /*物品内容字体*/
+/* .da {
+ 	background:#fff;
+ 	text-align: center;
+ }*/
+	
+/*.da .gou{
+ margin-top: 60px;
+}
+ .gou .jian{
+ 	 color:#B2B2B2;
+ }*/
+
+/*导航图标*/
+.panel{
+	margin: 0;
+	padding:0;
+}
+
+.tubiao{
+	padding-right: 3.75rem;
+}
+.daol{
+	margin-left: 10%;
+}
+.daol p{
+	padding-right: 2.75rem;
+}
+.daol li{
+	margin-left: 2.5rem
+}
+/*end 导航*/
+/*内容行列表的字体颜色*/
+ .headr .headr_img a{
+	color: #000;
+	font-size: 18
+}
+/*内容*/
+/*图片字体*/
+.suolvtu .widt .jian{
+	text-align: center;
+	font-size: 12px;
+	color: #B2B2B2;
+}
+.suolvtu .widt .jianjie{
+	text-align: center;
+	font-size: 12px;
+	color: red;
+}
+
+.suolvtu  .widt{
+	padding: 0;
+	margin: 0;
+}
+.suolvtu  .widt .two{
+	padding: 0;
+	margin: 0;
+}
+/*内容尾部字体居中*/
+.nw{
+	padding: 0;
+	margin: 0;
+}
+.nw h4{
+	text-align: center;
+}
+.nw p{
+	text-align: center;
+	font-size: 12px;
+	color: #B2B2B2;
+}
+/*end 内容*/
+/*结尾*/
+.jwei{
+	padding-top: 8.75rem;
+	background: #fff;
+	text-align: center;
+}

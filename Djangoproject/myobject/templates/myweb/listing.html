@@ -1,0 +1,101 @@
+{%extends "myweb/base.html" %}
+{%load static from staticfiles %}
+
+{%block block_index%}
+{%block details_css%}
+   <link rel="stylesheet" href="{% static 'myweb/css/listing.css'%}">
+   <script src="{% static 'myweb/js/listing.js'%}"></script>
+{%endblock%}
+	<!-- 内容 -->
+<div class="container headr">
+	<!--内容头部排序字体  -->
+		 <div class="row"> 
+		 	<div class="col-xs-12 " style="background:#C3C3C3" >
+		 		 <a href="{% url 'listing'%}"><p class="navbar-text">全部商品</p></a>
+		 		{% for tt in type %}
+					&gt;<a  style="line-height:50px;" href="{{ request.path }}?ttid={{ tt.id}}" title='{{ tt.name }}'>{{ tt.name }}</a>
+				{% endfor %}
+		 	</div>
+		</div>
+		<hr>
+		 <div class="row"> 
+		 	<div class="col-xs-6 " >
+		 		<div class="row ">
+		 			<div class="col-xs-12 col-sm-6 col-md-3 " ><a href="#"><h5>综合排序&nbsp;&nbsp;&nbsp;·</h5></a></div>
+		 			<div class="col-xs-12 col-sm-6 col-md-3 "><a href="#"><h5>销量排序&nbsp;&nbsp;&nbsp;·</h5></a></div>
+		 			<div class="col-xs-12 col-sm-6 col-md-3 "><a href="#"><h5>价格有低到高&nbsp;&nbsp;&nbsp;·</h5></a></div>
+		 			<div class="col-xs-12 col-sm-6 col-md-3 "><a href="#"><h5>价格有高到低</h5></a></div>
+		 		
+		 	</div>
+		 	<div class="col-xs-6 " ></div>
+		   </div>
+		</div>
+	<!-- end 内容字体 -->
+	<hr>
+	<!-- 内容列表图片 -->
+		<div class="container suolvtu">
+			<div class="row">
+				{% for list in goodslist%}
+			    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widt">
+				  <div class="thumbnail two">
+				     <img src="/static/goodsimg/{{ list.picname }}" width="298"/>
+				     <div class="caption ">
+					   <h5> {{list.goods}}</h5>
+					   <p class="jian">{{list.descr}}</p>
+					    <p class="jianjie">{{list.price}}</p>
+					      <p class="b1">
+				        	<a href="{% url 'details' list.id%}" class="btn btn-primary" role="button">购买</a> 
+				        	<a href="{% url 'cartadd' list.id%}" class="btn btn-default" role="button">加入购物车</a>
+				        </p>		        
+				       </div>
+					</div>
+			    </div>
+			 	{%endfor%}
+			 </div>
+			 <br> 
+
+			 <!-- 内容尾部样式 -->
+			 <div class="row">
+			 	<div class="col-xs-12 col-sm-12 col-md-3">
+			 	    <div class="thumbnail nw">
+			 	      <img src="{% static 'myweb/img/lt/erji.jpg'%}" alt="...">
+			 	      <div class="caption">
+			 	        <h4>在线客服</h4>
+			 			<p class="jian">周一至周日 9:00-18:00</p>
+			 	      </div>
+			 	    </div>
+			 	</div>
+			 	<div class="col-xs-12 col-sm-12 col-md-3">
+			 	    <div class="thumbnail nw">
+			 	      <img src="{% static 'myweb/img/lt/qi.jpg'%}" alt="...">
+			 	      <div class="caption">
+			 	        <h4>7天无理由退货</h4>
+			 			<p class="jian">7 天无理由退货 请放心购买</p>
+			 	      </div>
+			 	    </div> 
+			 	</div>
+			 	<div class="col-xs-12 col-sm-12 col-md-3">
+			 	    <div class="thumbnail nw">
+			 	      <img src="{% static 'myweb/img/lt/shiwu.jpg'%}" alt="...">
+			 	      <div class="caption">
+			 	        <h4>15 天免费换货</h4>
+			 			<p class="jian">15 天内如遇质量问题 免费换货</p>
+			 	      </div>
+			 	    </div>
+			 	</div>
+			 	<div class="col-xs-12 col-sm-12 col-md-3">
+			 	    <div class="thumbnail nw">
+			 	      <img src="{% static 'myweb/img/lt/liwu.jpg'%}" alt="...">
+			 	      <div class="caption">
+			 	        <h4>满 150 元免运费</h4>
+			 			<p class="jian">全场使用顺丰快递</p>
+			 	      </div>
+			 	    </div>
+			 	</div>
+			 </div>
+		</div>
+		</div>
+	</div>
+	
+{%endblock%}
+ <!-- end详情内容 -->

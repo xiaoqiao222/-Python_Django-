@@ -1,0 +1,80 @@
+{% extends 'myadmin/base.html' %}
+{% block block_edit %}
+
+	<h3>
+		编辑会员信息
+	</h3>
+	<form action="{% url 'myadmin_usersupdate' stu.id %}" method="post" enctype="multipart/form-data">
+		<table class="table table-bordered table-striped">
+		{% csrf_token %}
+			<div class="control-group">
+				<label class="control-label" for="input01">UserName</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.username}}" name='username'/>
+				</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Name</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.name}}" name="name" />
+				</div>
+			</div>		
+			<div class="control-group">
+				<label class="control-label" for="input01">sex</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sex" value="0" /> 男 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sex" value="1" /> 女	
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">Address</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.address}}" name="address"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Code</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.code}}" name="code"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Phone</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.phone}}" name="phone"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">Email</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.email}}" name="email" />
+				</div>
+			</div>			
+			<div class="control-group">
+				<label class="control-label" for="input01">State</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="state" value="0" /> 后台管理员 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="state" value="1" /> 启用	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="state" value="2" /> 禁用	
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">AddTime</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="{{stu.addtime}}" name="addtime" />
+				</div>
+			</div>									
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button> 
+				<button class="btn" type="reset">重置</button>
+			</div>
+		</table>
+	</form>
+
+	
+{% endblock %}
+
+{%block js%}
+<script type="text/javascript">
+	$("input[name='sex'][value='{{stu.sex}}']").attr("checked", true);	
+	$("input[name='state'][value='{{stu.state}}']").attr("checked", true);
+
+</script>
+{%endblock%} 

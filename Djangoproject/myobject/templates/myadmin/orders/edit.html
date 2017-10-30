@@ -1,0 +1,30 @@
+{% extends 'myadmin/base.html' %}
+{% block block_edit %}
+
+
+	<h3>
+		编辑订单
+	</h3>
+	<form action="{% url 'myadmin_ordersupdate' orders.id %}" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+			<div class="control-group">
+				<label class="control-label" for="input01">联系人</label>
+				<div class="controls">
+					<input type="text" readonly="" class="input-xlarge" value="{{orders.linkman}}" name="linkman"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">status</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="0" /> 新订单 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="1" /> 已发货	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="3" /> 无效订单	
+
+			</div>						
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button> 
+				<button class="btn" type="reset">重置</button>
+			</div>
+
+	</form>
+{% endblock %}

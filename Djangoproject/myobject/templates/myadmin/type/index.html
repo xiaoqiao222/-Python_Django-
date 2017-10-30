@@ -1,0 +1,71 @@
+{% extends "myadmin/base.html" %}
+{%block block_index%}
+			 <script>
+            //自定义执行信息删除提示判断，参数uu是成功的删除url地址
+            function doDel(uu){
+                if(confirm("确定要删除吗？")){
+                    //网页跳转
+                    window.location=uu;
+                }
+            }
+
+        </script>
+					<h1>
+					商品类型信息
+					</h1>
+					<table class="table table-bordered table-striped">	
+					<thead>
+							<tr>
+								<th>
+									分类id
+								</th>
+								<th>
+									分类名称
+								</th>
+								<th>
+									父类id号
+								</th>
+								<th>
+									分类路径
+								</th>
+								<th>
+									操作
+								</th>
+							
+							</tr>	
+						</thead>
+						<tbody>
+						{% for type in typelist %}
+							<tr>
+								<td>
+									{{type.id}}
+								</td>
+								<td>{{ type.pname}}|-- {{ type.name }}</td>
+								<td>
+									{{type.pid}}
+								</td>
+								<td>
+									{{type.path}}
+								</td>
+								<td>
+									<a href="{% url 'myadmin_typeaddss' type.id %}"><button class="btn btn-default" type="button">添加子类</button></a>
+								    <a href="{%url 'myadmin_typeedit' type.id%}"><button class="btn btn-default" type="button">编辑</button></a>
+								    <a href="javascript:doDel('{% url 'myadmin_typedel' type.id %}')"><button class="btn btn-default" type="button">删除</button></a>
+								</td>
+							</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+					<br/>
+					<div class="pagination">
+						<ul class="pagination">
+							{%for pindex in plist%}
+								<li>
+									<a  href="{% url 'myadmin_typeindex' pindex %}" >{{pindex}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					 </div>
+			
+			
+{%endblock%}

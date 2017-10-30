@@ -1,0 +1,87 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+    /*导航*/
+body { padding-top: 0.5rem; background: #D9D8D7  }
+ 
+  /*购物车显示框 */
+
+
+ 
+
+/*导航图标*/
+.tubiao{
+	padding-right: 3.75rem;
+}
+.daol{
+	margin-left: 10%;
+}
+.daol p{
+	padding-right: 2.75rem;
+}
+.daol li{
+	margin-left: 2.5rem
+}
+/*end 导航*/
+/*内容*/
+.headr{
+	margin: 0 auto;
+
+}
+.headr .headr_img a{
+	color: #000;
+	font-size: 18
+}
+/*图片详情块颜色*/
+.imgs{
+	background: #fff;
+}
+/*左侧小图*/
+.imgas .small_img{
+	margin-top: 8%;
+	padding-left: 30px;
+}
+.xiangtext ul li{
+	margin-top: 20px;
+}
+.xiangtext ul li p{
+	color:red;
+}
+/*接受图片居中*/
+.jie_img{
+	padding: 0;
+}
+.zhi{
+	margin-right: 10px;
+	margin-left: 10px;
+}
+/*end 内容*/
+/*返回div*/
+#card{
+	width: 60px;
+	position: fixed;
+	top:80%;left:25px;
+}
+#card {
+	width: 60px;
+	height: 60px;
+	background: #fff;
+	margin-top: 5px;
+	text-align:center;
+	line-height:30px;
+	font-size:14px;
+
+}
+#card :hover{
+	background: #603;
+	color:#fff;
+}
+/*结尾*/
+.jwei{
+	padding-top: 8.75rem;
+	background: #fff;
+	text-align: center;
+}

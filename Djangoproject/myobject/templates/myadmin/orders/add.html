@@ -1,0 +1,73 @@
+{% extends 'myadmin/base.html' %}
+{% block block_add%}
+
+	<h3>
+		添加订单
+	</h3>
+	<form id="edit-profile" class="form-horizontal" action="{% url 'myadmin_ordersinsert' %}" method="post">
+            {% csrf_token %}
+
+		<fieldset>
+			<legend>商品信息</legend>
+			<div class="control-group">
+				<label class="control-label" for="input01">会员id号</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="" name="uid" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">联系人</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" name="linkman"/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">地址</label>
+				<div class="controls">
+					<input type="passwd" class="input-xlarge" id="input01" value="" name="address" />
+				</div>
+			</div>	
+			<div class="control-group">
+				<label class="control-label" for="input01">邮编</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="" name='code'/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">电话</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" value="" name='phone'/>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">购买时间</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01"  name='addtime'/>
+				</div>
+			</div>
+					
+			<div class="control-group">
+				<label class="control-label" for="input01">总金额</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01"  name='total'/>
+				</div>
+			</div>		
+			<div class="control-group">
+				<label class="control-label" for="input01">status</label>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="0" /> 新订单 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="1" /> 已发货	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="2" /> 已收货	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="status" value="3" /> 无效订单	
+
+			</div>				
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button> 
+				<button class="btn" type="reset">重置</button>
+			</div>
+		</fieldset>
+	</form>
+
+ 
+			
+{% endblock %}

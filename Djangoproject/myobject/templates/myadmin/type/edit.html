@@ -1,0 +1,36 @@
+{% extends 'myadmin/base.html' %}
+{% block block_edit %}
+
+
+	<h3>
+		编辑商品类型
+	</h3>
+	<form id="edit-profile" class="form-horizontal" action="{% url 'myadmin_typeupdate' type.id%}" method="post">
+            {% csrf_token %}
+
+		<fieldset>
+			<legend>商品信息</legend>
+			
+			<div class="control-group">
+				<label class="control-label" for="input01">名称</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" name="name" value="{{type.name}}" />
+				</div>
+			</div>
+
+		 <div class="control-group">
+                <label class="control-label" for="input01">父类名称：</label>
+                <div class="controls">
+                    <input type="text"  disabled="true" class="input-xlarge" id="input01" value="{{type.pid}}:{{type.name}}" />
+                </div>
+            </div> 	
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary">保存</button> 
+				<button class="btn" type="reset">重置</button>
+			</div>
+		</fieldset>
+	</form>
+
+{%endblock%}
+
+		

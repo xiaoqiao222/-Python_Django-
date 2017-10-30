@@ -1,0 +1,126 @@
+
+{% extends "myadmin/base.html" %}
+{%block block_index%}
+		 <script>
+            //自定义执行信息删除提示判断，参数uu是成功的删除url地址
+            function doDel(uu){
+                if(confirm("确定要删除吗？")){
+                    //网页跳转
+                    window.location=uu;
+                }
+            }
+
+        </script>
+
+					<h1>
+					商品信息
+					</h1>
+					<table class="table table-bordered table-striped">	
+					<thead>
+							<tr>
+								<th>
+									用户id
+								</th>
+								<th>
+									账号
+								</th>
+								<th>
+									姓名
+								</th>
+						
+								<th>
+									性别
+								</th>
+								<th>
+									地址
+								</th>
+								<th>
+									邮编
+								</th>
+								<th>
+									电话
+								</th>
+								
+								<th>
+									状态
+								</th>
+								<th>
+									注册信息
+								</th>
+								<th>
+									操作
+								</th>
+				
+							</tr>	
+						</thead>
+						<tbody>
+						{% for stu in stulist %}
+							<tr>
+								<td>
+									{{stu.id}}
+								</td>
+								<td>
+									{{stu.username}}
+								</td>
+								<td>
+									{{stu.name}}
+								</td>
+								{% if stu.sex == 1 %}
+									<td>男</td>
+								{% else %}
+									<td>女</td>
+								{%endif%}
+								
+								<td>
+									{{stu.address}}
+								</td>
+								<td>
+									{{stu.code}}
+								</td>
+								<td>
+									{{stu.phone}}
+								</td>
+							
+								{% if stu.state == 0 %}
+									<td>管理员</td>
+								{% elif stu.state == 1 %}
+									<td>启用</td>
+								{%else%}
+									<td>禁用</td>
+								{%endif%}
+								<td>
+									{{stu.addtime}}
+								</td>
+								<td>
+								    <a href="{%url 'myadmin_usersedit' stu.id%}"><button class="btn btn-default" type="button">编辑</button></a>
+								    <a href="javascript:doDel('{% url 'myadmin_usersdel' stu.id %}')"><button class="btn btn-default" type="button">删除</button></a>
+								</td>
+							</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+					<br/>
+					<div class="pagination">
+						<ul>
+							{%for pindex in plist%}
+								<li>
+									<a  href="{% url 'myadmin_usersindex' pindex %}" >{{pindex}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					 </div>
+		
+			
+{%endblock%}
+
+		
+		<script>
+            //自定义执行信息删除提示判断，参数uu是成功的删除url地址
+            function doDel(myadmin_usersindex){
+                if(confirm("确定要删除吗？")){
+                    //网页跳转
+                    window.location=myadmin_usersdel;
+                }
+            }
+ 
+        </script>

@@ -1,0 +1,107 @@
+{%extends "myweb/base.html" %}
+{%load static from staticfiles %}
+{%block details_css%}
+   <link rel="stylesheet" href="{% static 'myweb/css/member-app.css'%}">
+   <link rel="stylesheet" href="{% static 'myweb/css/member.css'%}">
+{%endblock%}
+{%block block_index%}
+    <!-- 主内容区域 -->
+    <div class="mainbody order">
+    <div class="container">
+      <!-- 面包屑导航 -->
+      <div class="crumbs ">
+        <ol class="breadcrumb">
+          <li class="hidden-xs hidden-sm"><a href="index.html">首页</a></li>
+          <li class="active"><a href="#">我的商城</a></li>
+        </ol>
+      </div><!-- 面包屑导航 E-->
+      
+      <div class="main clearfix">
+        <!-- 左侧导航 -->
+        <div class="left-nav f-fl hidden-xs hidden-sm">
+          <div class="nav-main">
+            <a href="javascript:;" class="type-title"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>订单中心</a>
+            <a href="order.html" class="ml" >我的订单</a>
+            <a href="#" class="ml " >我的回购单</a>
+            <a href="#" class="ml " >我的意外保</a>
+            <a href="{%url 'personalCore'%}" class="type-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>个人中心</a>
+            <a href="#" class="ml " >地址管理</a>
+            <a href="#" class="ml " >我的收藏</a>
+            <a href="#" class="ml " >消息提醒</a>
+            <a href="#" class="ml ">建议反馈</a>
+          </div>
+        </div><!-- 左侧导航 E-->
+        <!-- 右侧内容展示 -->
+        <div class="right-content f-fr col-xs-12 col-sm-12">
+  
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              历史订单信息
+            </h3>
+          </div>
+          <div class="panel-body">
+        <table class="table table-bordered table-striped" style="border: 1px solid #82B351">
+
+          {% for core in corelist %}
+                 <thead style="border: solid yellow 1px;">
+                   <th colspan="1"><h4>订单号:{{core.id}}</h4> </th>
+                   <th colspan="1"><h4>订单联系人:{{core.linkman}}</h4></th>
+                   <th colspan="1"><h4>小计:{{core.total}}</h4></th>
+                   <th colspan="2"><button class="btn btn-default moret" type="button">点击详情</button>
+                
+              
+                    {%if core.status == 0 or  core.status == 1%}
+                     <a href="{% url 'personaledita' core.id%}"><button class="btn btn-default mo" type="button">确认收货</button></a>
+              
+                     <a href="{% url 'personaledits' core.id%}"><button class="btn btn-default ms" type="button">取消收货</button></a>
+                   {%endif%}
+                   
+                   </th>
+                   </thead>
+                   <tr tr class="hidden" >
+                       <th>地址</th>
+                       <th>电话</th>
+                       <th>id号</th>
+                       <th>名称</th>
+                       <th>单价</th>
+                       <th>数量</th>          
+                       <th>状态</th>
+                   </tr>
+                  {% for cores in core.list %}
+                  <today>
+                    <tr class="hidden">
+                  <td>{{core.address}}</td>
+                  <td>{{core.phone}}</td>
+                  <td>{{cores.id}}</td>
+                  <td>{{cores.name}}</td>
+                  <td>{{cores.price}}</td>
+                  <td>{{cores.num}}</td> 
+                  {% if core.status == 0 %}
+                  <td>新订单</td>
+                  {% elif core.status == 1 %}
+                    <td>已发货</td>
+                  {% elif core.status == 2 %}
+                    <td>已收货</td>
+                  {%elif core.status == 3%}
+                    <td>无效订单</td>
+                  {%endif%}
+                      </tr>
+                      </today>
+                 {% endfor%}
+              {% endfor%}
+          </table>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+    <!-- 主内容区域 E-->
+<script type="text/javascript">
+  $(' .moret').click(function(){
+    $(this).parents('thead').next('tbody').find('tr').toggleClass('hidden');
+  })
+</script>
+
+{%endblock%}

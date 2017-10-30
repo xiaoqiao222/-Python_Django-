@@ -1,0 +1,165 @@
+{%extends "myweb/base.html" %}
+{%load static from staticfiles %}
+
+
+{%block block_index%}
+{%block details_css%}
+    <link rel="stylesheet" href="{% static 'myweb/css/cart.css'%}">
+  <script src="{% static 'myweb/js/cart.js'%}"></script>
+{%endblock%}
+<div class="container"> 
+    <div class="panel panel-default">
+        <div class="panel-body ">
+            <div class="row">
+                <div class=" col-md-1  ">  
+                      <button type="checkbox" class="quan  btn btn-default" onclick="func(1)">全选     
+                </div>
+                <div class=" col-md-1
+                  ">
+                      
+                </div>
+                <div class=" col-md-1  ">
+                    购物清单    
+                </div>
+                <div class=" col-md-4">
+                        商品
+                </div>
+                <div class=" col-md-1">
+                       单价
+                </div>
+                <div class=" col-md-2">
+                      数量
+                </div>
+                <div class=" col-md-1">
+                      价格
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="panel-footer "> 
+              {% for cart in request.session.cartlist.values %}
+                <div class="row gwc" >
+                    <div class="col-xs-12 col-md-1  ">
+                        <div class="row  " style="margin-top:60px;">
+                          <div class="col-lg-6"  >
+                            <div class="input-group">
+                              <span class="input-group-addon">
+                                <input type="checkbox" name="xuan" onclick="jisuan()" cid="{{cart.id}}" price="{% widthratio  cart.price 1 cart.m %}">
+                              </span>
+                              <input type="text" class="form-control">
+                            </div><!-- /input-group -->
+                          </div><!-- /.col-lg-6 -->
+                        </div>
+                    </div>
+               
+                    <div class="col-xs-12 col-md-2">
+                         <a href="{% url 'details' cart.id %}" class="thumbnail b " >
+                                <img src="/static/goodsimg/s_{{ cart.picname }}" class="cart-product-img" alt="{{ cart.goods }}" width="150">
+                         </a>
+                    </div>
+                    <div class="col-xs-12 col-md-3 gou">
+                        <div class="row">
+                        <div class="col-xs-12 "></div>
+                        <div class="col-xs-12 ">
+                            <div class="caption ">
+                              <h4>{{ cart.goods }}</h4>
+                              <p class="jian">灰色&nbsp;|&nbsp;Type-C</p>
+                            </div>
+                            </div>
+                        <div class="col-xs-12 "></div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-xs-12 col-md-1">
+                   </div>
+                   <div class="col-xs-12 col-md-1 gou " >
+                        <div class="caption  ">
+                           <p>{{ cart.price }}</p>
+                        </div>  
+                   </div>
+                   <div class="col-xs-12 col-md-2 gou" >
+                         <div class="btn-group" data-toggle="buttons">
+                            <input class="btn btn-default btjian" type="button" value="-"onclick="window.location='{% url 'cartchange' %}?cid={{cart.id}}&m={{cart.m|add:-1}}'">
+                        </div>
+                              <input class="mz-adder-input" value="{{ cart.m }}" type="text" style="width:30px" name="m">
+                        <div class="btn-group" data-toggle="buttons">
+                             <input class="btn btn-default btjia" type="button" value="+"onclick="window.location='{% url 'cartchange' %}?cid={{cart.id}}&m={{cart.m|add:+1}}'">
+                        </div>
+                   </div>
+                   <div class="col-xs-12 col-md-1 gou">
+                        <div class="caption ">
+                          <h4 name="xiaoji">{% widthratio  cart.price 1 cart.m %}</h4>
+                        </div>  
+                   </div>
+                    <div class="col-xs-12 col-md-1 gou">
+                        <div class="caption del">
+                        <a href="javascript:doDel('{% url 'cartdel' cart.id %}')"><img src="{% static 'myweb/img/xq/4.png'%}" ></a>
+                        </div>  
+                   </div>
+                </div>
+                  <br>  
+                 {%endfor%}
+               <hr>
+                <div class="row " >
+                    <div class="col-xs-12 col-md-1 ">
+                                <button type="checkbox" class=" btn btn-default" onclick="func(2)">全不选                           
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-xs-12 col-md-1">
+                       <button type="checkbox" class=" btn btn-default" onclick="func(3)">反选  
+                    </div>
+                    <div class="col-xs-12 col-md-2 ">
+                        <div class="row ">
+                            <div class="col-xs-12 col-md-2 ">
+                                 
+                            </div>
+                            <div class="col-xs-12 col-md-7 ">
+                                 <div class=" btn btn-default" onclick="window.location='{% url 'cartclear' %}'" id="cartSubmit" style="height:40px;">清空购物车</div>
+                            </div>
+                            <div class="col-xs-12 col-md-3 ">
+                                 
+                            </div>
+                        </div>
+                    </div>
+                  
+
+                    <div class="col-xs-12 col-md-2">
+                        <div class="caption ">
+                            已选择<span class="cart-footer-num" id="totalCount"></span>类商品
+                            <p class="jian">共2件商品</p>
+                        </div>
+                   </div>
+                    <div class="col-xs-12 col-md-1" >
+                        <span>|</span>
+                   </div>
+                   <div class="col-xs-12 col-md-2" >
+                        <div class="caption ">
+                            应付总额:¥<span class='zj'>0</span>
+                            <p class="jian">应付总额不含运费</p>
+                        </div>
+                   </div>
+                   <div class="col-xs-12 col-md-2 ">
+                        <div class="caption ">
+                            <a href="#" class="btn btn-primary btn-lg active" role="button" onclick="window.location='{% url 'ordersform' %}?gids='+jisuan().join(',')" >现在结算</a>
+                        </div>  
+                   </div>
+            </div>   
+         </div>
+    </div>
+
+          
+{%endblock%}
+ <!-- end详情内容 -->
+{% block details_js%}
+<script type="text/javascript">
+function doDel(uu){
+   if(confirm("确定要删除吗？")){
+       //网页跳转
+       window.location=uu;
+   }
+}
+var gidlist=[];
+</script>
+{%endblock%}
+        
+        

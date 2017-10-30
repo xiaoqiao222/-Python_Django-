@@ -1,0 +1,176 @@
+{%extends "myweb/base.html" %}
+{%load static from staticfiles %}
+{%block details_css%}
+   <link rel="stylesheet" href="{% static 'myweb/css/details.css'%}">
+{%endblock%}
+{%block block_index%}
+	<!-- 内容 -->
+<div class="container headr">
+	  <!--详情内容 -->
+	
+	 <div class="row">
+	 	<div class="col-xs-12">
+		 	<div class="jumbotron ">
+		 	 <!-- 图片 -->
+		 	  <div class="imgs ">	
+		 	  	<div class="row imgas ">
+		 	  	    <div class="col-md-1 small_img  " >
+		 	  	         <ul id='uing'>
+		 	  	            <li>
+		 	  	         	<a href="" class="thumbnail " >
+		 	  	            	<img id="a" src="/static/goodsimg/{{ details.picname }}"width="100%" >
+		 	  	            </a>
+		 	  	            </li>
+		 	  	            <li>
+		 	  	            <a href="" class="thumbnail" >
+		 	  	            	<img src="/static/goodsimg/{{ details.picname }}" width="100%">
+		 	  	            </a>
+		 	  	            </li>
+		 	  	            <li>
+		 	  	            <a href="" class="thumbnail ">
+		 	  	            	<img src="/static/goodsimg/{{ details.picname }}"width="100%" >
+		 	  	            </a>
+		 	  	            </li>
+		 	  	            <li>
+		 	  	            <a href="" class="thumbnail ">
+		 	  	            	<img src="/static/goodsimg/{{ details.picname }}" width="100%">
+		 	  	            </a>  
+		 	  	            </li>	 
+		 	  	         </ul>   
+		 	  	    </div>
+		 	  	    <form action="{% url 'cartadd' details.id %}" method="post">
+		 	  	   	{% csrf_token %} 
+		 	  	   	<div class="col-xs-12 col-sm-8 col-md-6">
+		 	  	   		  <div class="thumbnail sing" >
+		 	  	            <a  href="" class="thumbnail">
+		 	  	            	<img id='big' src="/static/goodsimg/{{ details.picname }} " width="100%" >
+		 	  	            </a>
+		 	  	         </div>
+						
+		 	  	   	</div>
+		 	  	   
+		 	  	    <div class="col-xs-12 col-sm-8 col-md-5 xiangtext" >
+		 	  	   		<ul>
+		 	  	   	    	<br>
+		 	  	   	    	<li>
+				 	  	   		<h4 >{{details.goods}}</h4>	
+							</li>
+							<li>
+								<h6>{{details.descr}}</h6>
+									
+							</li>
+							<li  class="mouney">
+								<p >{{details.price}}</p>
+							</li>
+							<hr>
+							<li>
+								<a href="#" type='sumbit' class="btn  btn-lg disabled" role="button">颜色</a>
+								<a href="#" type='sumbit' class="btn btn-default  " role="button">灰色</a>
+
+							</li>
+							<li>
+								<div class="btn-group" data-toggle="buttons">
+								 <a href="#" type='sumbit' class="btn  btn-lg disabled" role="button">接口</a>
+								  <label class="btn btn-primary">
+								    <input type="checkbox"> 3.5MM
+								  </label>
+								  <label class="btn btn-primary">
+								    <input type="checkbox"> Type-C
+								  </label>
+								</div>
+								<!-- <a href="#" type='sumbit' class="btn  btn-lg disabled" role="button">接口</a>
+								<a href="#" type='sumbit' class="btn btn-default  " role="button">3.5MM</a>
+								<a href="#" type='sumbit' class="btn btn-default  " role="button">Type-C</a> -->
+
+							</li>
+							<li>
+								<a href="#" type='sumbit' class="btn  btn-lg disabled" role="button">数量</a>
+								 	 <div class="btn-group" data-toggle="buttons">
+					              		 <input class="btn btn-default btjian" type="button" value="-">
+				              		</div>
+				              			<input value="1" name="m" id="J_quantity" data-max="5" type="text" class="zhi" style="width:4s0px">
+				         		 	 <div class="btn-group" data-toggle="buttons">
+					              		 <input class="btn btn-default btjia" type="button" value="+">
+				              		</div>
+				              		
+							</li>
+					
+						
+							<hr>
+							<li>
+						   		<button class="btn btn-primary btn-lg">加入购物车</button></a>
+						   		&nbsp;&nbsp;&nbsp;
+						   		<button type="button" class="btn btn-default btn-lg">现在购买</button>
+							</li>
+							<br>
+							<li>
+								<h6>
+									*Smartisan S-1001 圈铁线控耳机（Type-C 版）仅支持 坚果 Pro，乐视 Pro 3，小米 6。
+								</h6>
+							</li>
+						</ul>
+		 	  	     </div>
+		 	  	    </form>
+		 	  	</div>
+			 </div>
+			</div>
+	 	  </div>
+	 	</div>
+
+	<!--内容详细信息-->
+	 <div class="row">
+	 	<div class="col-xs-12">
+		 	<div class="panel panel-default ">
+		 	  <div class="panel-heading">产品信息</div>
+		 	  <div class="panel-body jie_img ">
+			 	  	<div class="row ">
+			 	  		<div class="col-xs-12 ">
+			 	  		<img src="{% static 'myweb/img/xq/7.jpg'%}" width="100%">	
+			 	  		</div>	
+			 	  	</div>
+			 	  	<div class="row ">
+			 	  		<div class="col-xs-12 ">
+			 	  		<img src="{% static 'myweb/img/xq/8.jpg'%}" width="100%">	
+			 	  		</div>	
+			 	  	</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/9.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/10.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/11.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/12.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/13.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  		<div class="row ">
+		 	  			<div class="col-xs-12 ">
+		 	  			<img src="{% static 'myweb/img/xq/14.jpg'%}" width="100%">	
+		 	  			</div>	
+		 	  		</div>
+		 	  </div>
+		 	</div>
+	 	</div>
+	 </div>
+</div>	 
+	
+{%endblock%}
+ <!-- end详情内容 -->
+{% block details_js%}
+<script src="{% static 'myweb/js/details.js'%}"></script>
+{%endblock%}

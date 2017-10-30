@@ -1,0 +1,153 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+    /*导航*/
+body { padding-top:0.5rem; background: #D9D8D7 }
+ 
+  /*购物车显示框 */
+.nhear{
+	margin-left: 10%
+
+}
+/*删除轮播图两边的灰色*/
+/*.carousel-control.right,.carousel-control.left{
+	background-image: none;
+}*/
+.cart{
+		  width: 25.0rem;
+		  height: 20.0rem;
+		  position: absolute;
+		  top: 50px; left:60%;
+		  border: 4px solid #fff;
+		  border-radius: 8px;
+		  display: none;
+		  background: white;
+		  padding: 0px;
+		  margin: 0px;
+
+}
+
+.cart:after,.cart:before {
+		  border: solid transparent;
+		  content: ' ';
+		  height: 0;
+		  left: 80%;
+		  position: absolute;
+		  width: 0;
+
+}
+
+.cart:after {
+		  border-width: 0.65rem;
+		  border-bottom-color: #fff;
+		  top: -21px;
+		
+}
+.cart:before {
+		  border-width: 0.7rem;
+		  border-bottom-color: #fff;
+		  top: -30px;
+		  
+}
+/*end 购物车显示框 */
+ 
+/*导航图标*/
+.tubiao{
+	padding-right: 3.75rem;
+}
+.daol{
+	margin-left: 10%;
+}
+.daol p{
+	padding-right: 2.75rem;
+}
+.daol li{
+	margin-left: 2.5rem
+}
+/*内容行列表的字体颜色*/
+ .headr .headr_img a{
+	color: #000;
+	font-size: 18
+}
+/*热门商品下的简介字体*/
+/* 请出浮动 */
+.clear{
+	clear: both;
+}
+.frist img{
+height: 100%;
+width: 100%
+}
+.thumbnail{
+	padding:0px;
+	margin: 0px;
+}
+.b{
+	padding:0px;
+	margin: 0px;
+	text-align: center;
+}
+.widt{
+	padding: 0px;
+	margin: 0px;
+	height: 400px;
+}
+.re{
+	padding: 0px;
+	margin: 0px;
+}
+.re .b1{
+	display:none;
+}
+.rejie .jianjie{
+	text-align: center;
+	font-size: 18px;
+	color: red;
+}
+.rejie .jian{
+	text-align: center;
+	font-size: 12px;
+	color: #B2B2B2;
+}
+/*边框*/
+.rejie .re_bg{
+	border:1px solid #337AB7;
+	padding:0;
+	margin: 0;
+}
+/*隐藏热门商品的按钮*/
+.rejie .b1{
+	display:none;
+}
+
+
+/*返回div*/
+#card{
+	width: 60px;
+	position: fixed;
+	top:80%;left:25px;
+}
+#card {
+	width: 60px;
+	height: 60px;
+	background: #fff;
+	margin-top: 5px;
+	text-align:center;
+	line-height:30px;
+	font-size:14px;
+
+}
+#card :hover{
+	background: #603;
+	color:#fff;
+}
+
+/*结尾*/
+.jwei{
+	padding-top: 8.75rem;
+	background: #fff;
+}
+

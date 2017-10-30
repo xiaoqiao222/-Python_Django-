@@ -1,0 +1,67 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en"><!--<![endif]--> 
+	<head>
+		<meta charset="utf-8">
+		<title>Login -gua</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="{% static 'myadmin/css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="{% static 'myadmin/css/bootstrap-responsive.min.css' %}" rel="stylesheet">
+		<link href="{% static 'myadmin/css/site.css' %}" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<div id="login-page" class="container">
+			<h1>甜瓜网后台管理</h1>
+		<form id="login-form"  class="well" action="{% url 'myadmin_dologin' %}" method='post' >
+			{% csrf_token %}
+			<span >账&nbsp;&nbsp;号:</span><input type="text" class="span" placeholder="账号" name="username" /><br />
+			<span >密&nbsp;&nbsp;码:</span><input type="password" class="span" placeholder="Password" name="pwd" /><br />
+			
+			<span >验证码:</span><input type="text" class="" placeholder="输入验证码" name="code" style="width:70px" /><img src="{% url 'logincode'%}"  onclick="this.src='{% url 'logincode' %}?sn='+Math.random()"/><br />	
+			
+			<label class="checkbox"> 
+			<input type="checkbox" />记住密码 </label>
+			<button type="submit" class="btn btn-primary">登陆</button>
+			<button type="reset" class="btn  ">重置</button>
+			<br>
+			<br>
+		<span style='color:red'>{{ info }}</span>
+		</form>	
+		</div>
+		
+		<script src="{% static 'myadmin/js/jquery.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'myadmin/js/site.js' %}"></script>
+		<style type="text/css">
+		.well{
+			width:350px;
+			height: 220px;
+			padding-top:60px; 
+
+		}
+		span{
+
+			font-size: 23px;
+			padding-right: 30px;
+			padding-left: 30px;
+		}
+		.span{
+
+			width:200px;
+			height: 40px;
+		}
+		img{
+			padding-left: 20px;
+		}
+		.checkbox{
+			padding-left: 50px;
+		}
+		.btn{
+			margin-left: 50px;
+			width: 80px;
+			height: 40px;
+		}
+		</style>
+	</body>
+</html>

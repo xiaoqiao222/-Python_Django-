@@ -1,0 +1,99 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+body { 
+	padding-top: 5%;
+	background: url(../img/ld/b.jpg);
+	background-repeat: no-repeat;
+	}
+.all{
+	background: url(../img/ld/bj.jpg);
+	background-repeat: no-repeat;
+}
+.tubiao{
+	height: 5.0rem;
+	width: 100%
+}
+/*登录*/
+.langding{
+	text-align: center;
+}
+
+.langding .ren button{
+	padding: 0px;
+	background: url('../img/ld/3.png');
+	height: 46px;
+	width: 46px;
+}
+.langding input{
+	height: 46px;
+	width: 46px;
+}
+.langding .pwd button{
+	padding: 0px;
+	background: url('../img/ld/4.png');
+	height: 46px;
+	width: 46px;
+}
+.relogin{
+	margin-top: 20px;
+}
+.relogin .quan{
+	height: 20px;
+	width: 20px;
+	background: url('../img/ld/5.png') 0 2px no-repeat;
+	cursor: pointer;
+	float: left;
+	margin-left: 5px;
+}
+.relogin span{
+	float: left;
+	font-size: 12px;
+	cursor: pointer;
+	margin-top: 2px;
+	margin-left: 5px;
+	color: #999999;
+}
+.relogin a{
+	color: #5079d9;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.relogin ul li{
+	float: left;
+	margin-right: 10px;
+}
+.relogin .qita{
+	color: #999999;
+	font-size: 12px;
+}
+.relogin .guoji{
+	padding: 0px;
+}
+
+.relogin .internation a{
+	color: #999999;
+	font-size: 12px;
+}
+
+/*尾部*/
+.zxbz{
+	color: #5098E4;
+	float: right;
+}
+.copy{
+	color: #fff;
+	font-size: 12px;
+}
+.wei_font a{
+	font-size: 12px;
+	border-left: 1px solid #CCCCCC;
+	padding-left: 10px;
+}
+.wei{
+	font-size: 12px;
+	color: #fff;
+}

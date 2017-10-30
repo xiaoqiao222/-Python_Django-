@@ -1,0 +1,123 @@
+{% extends "myadmin/base.html" %}
+{%block block_index%}
+		 <script>
+            //自定义执行信息删除提示判断，参数uu是成功的删除url地址
+            function doDel(uu){
+                if(confirm("确定要删除吗？")){
+                    //网页跳转
+                    window.location=uu;
+                }
+            }
+
+        </script>
+
+					<h1>
+					商品信息
+					</h1>
+					<table class="table table-bordered table-striped">	
+					<thead>
+							<tr>
+								<th>
+									商品id
+								</th>
+								<th>
+									类别id
+								</th>
+								<th>
+									商品名称
+								</th>
+								<!-- <th>
+									生产厂家
+								</th> -->
+								<th>
+									简介
+								</th>
+								
+								<th>
+									图片
+								</th>
+								
+								<th>
+									状态
+								</th>
+								<th>
+									库存量
+								</th>
+								<!-- <th>
+									被购买数量
+								</th>
+								<th>
+									点击次数
+								</th>
+								<th>
+									添加时间
+								</th> -->
+								<th>
+									操作
+								</th>
+				
+							</tr>	
+						</thead>
+						<tbody>
+						{% for goods in goodslist %}
+							<tr>
+								<td>
+									{{goods.id}}
+								</td>
+								<td>
+									{{goods.typename}}
+								</td>
+								<td>
+									{{goods.goods}}
+								</td>
+								<!-- <td>
+									{{goods.company}}
+								</td> -->
+								<!-- <td>
+									{{goods.descr}}
+								</td> -->
+								<td>
+									{{goods.price}}
+								</td>
+								 <td><img src="/static/goodsimg/{{ goods.picname }}" width="100"/></td>
+								
+								{% if goods.state == 1 %}
+									<td>新添加</td>
+								{% elif goods.state == 2 %}
+									<td>在售</td>
+								{%else%}
+									<td>下架</td>
+								{%endif%}
+								<td>
+									{{goods.store}}
+								</td>
+								<!-- <td>
+									{{goods.num}}
+								</td>
+								<td>
+									{{goods.clicknum}}
+								</td>
+								<td>
+									{{goods.addtime}}
+								</td> -->
+								<td >
+								    <a href="{%url 'myadmin_goodsedit' goods.id%}"><button class="btn btn-default" type="button">编辑</button></a>
+								    <a href="javascript:doDel('{% url 'myadmin_goodsdel' goods.id %}')"><button class="btn btn-default" type="button">删除</button></a>
+								</td>
+							</tr>
+							{%endfor%}
+						</tbody>
+					</table>
+					<br/>
+					<div class="pagination">
+						<ul>
+							{%for pindex in plist%}
+								<li>
+									<a  href="{% url 'myadmin_goodsindex' pindex %}" >{{pindex}}</a>
+								</li>
+							{% endfor %}
+						</ul>
+					 </div>
+			
+			
+{%endblock%}
